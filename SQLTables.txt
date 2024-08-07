@@ -1,0 +1,118 @@
+**  Hospital Managment System Tables **
+
+create the database 'hospital_db' in MySQL 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+User Table :-
+
+CREATE TABLE user (
+    id INT NOT NULL AUTO_INCREMENT,
+    fullName VARCHAR(45) NOT NULL,
+    email VARCHAR(45) NOT NULL,
+    password VARCHAR(45) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+--insert this data--
+
+INSERT INTO user (fullName, email, password) VALUES 
+('Kiran Kadam', 'kiran@gmail.com', '123456'),
+('Rahul Kumar', 'rahul@gmail.com', '34567'),
+('Virat Patil', 'Virat@gmail.com', '1234'),
+('Abishek Rathod', 'abhi@gmail.com', '56789');
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Doctor Table :--
+
+CREATE TABLE doctor (
+
+    id INT NOT NULL AUTO_INCREMENT,
+    fullName VARCHAR(40) NOT NULL,
+    dob VARCHAR(40) NOT NULL,
+    qualification VARCHAR(40) NOT NULL,
+    specialist VARCHAR(40) NOT NULL,
+    email VARCHAR(40) NOT NULL,
+    mobno VARCHAR(40) NOT NULL,
+    password VARCHAR(40) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+--insert this Data--
+
+
+INSERT INTO doctor (fullName, dob, qualification, specialist, email, mobno, password) VALUES 
+('Rutuja Chorgi', '01/06/2002', 'MS', 'Stomach', 'rutuja@gmail.com', '8765431231', '67890'),
+('Kiran Pawar', '27/05/1990', 'MD', 'Skin', 'kiran@gmail.com', '8765341219', '76543'),
+('Sameer Shaikh', '12/02/2000', 'MBBS', 'BrainSpecialist', 'sammer@gmail.com', '9876543114', '98765'),
+('Yasmin Mujawar', '01/06/1999', 'BDS', 'Dentologist', 'yasmin@gmail.com', '7654432112', '7890');
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--Specialist Table --
+
+CREATE TABLE specialist (
+    id INT NOT NULL AUTO_INCREMENT,
+    spec_name VARCHAR(40),
+    PRIMARY KEY (id)
+);
+
+--insert this data --
+
+INSERT INTO specialist (spec_name) VALUES 
+('HeartSpecialist'),
+('Fever'),
+('BrainSpecialist'),
+('Skin'),
+('Stomach'),
+('Heart'),
+('Dentologist');
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+appointment Table :--
+
+CREATE TABLE `hospital_db`.`appointment` (
+
+  `id` INT NOT NULL auto_increment,
+  `user_id` INT NOT NULL,
+  `fullName` VARCHAR(45) NOT NULL,
+  `gender` VARCHAR(45) NOT NULL,
+  `age` VARCHAR(45) NOT NULL,
+  `appoint_date` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `phno` VARCHAR(45) NOT NULL,
+  `diseases` VARCHAR(105) NOT NULL,
+  `doctor_id` INT NOT NULL,
+  `address` VARCHAR(500) NOT NULL,
+  `status` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `uid_idx` (`user_id` ASC) VISIBLE,
+  INDEX `did_idx` (`doctor_id` ASC) VISIBLE,
+  CONSTRAINT `uid`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `hospital_db`.`user` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `did`
+    FOREIGN KEY (`doctor_id`)
+    REFERENCES `hospital_db`.`doctor` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+--insert this data --
+
+INSERT INTO `hospital_db`.`appointment` (
+  `user_id`, `fullName`, `gender`, `age`, `appoint_date`, `email`, `phno`, `diseases`, `doctor_id`, `address`, `status`
+) VALUES
+  (3, 'Maxwell', 'male', '24', '2000-03-02', 'max@gmail.com', '8765453216', 'Heart Problem', 2, 'Pune', 'Pending'),
+  (4, 'Abhishek Rathod', 'male', '23', '2000-11-26', 'abhi@gmail.com', '8765432124', 'Dental Problem', 3, 'Nanded Maharashtra', 'Pending'),
+  (2, 'Rahul Kumar', 'male', '25', '1999-08-04', 'rahul@gmail.com', '9876543210', 'Fever', 4, 'Solapur', 'Checkup complete');
+
+------------------------------------------------------------------End----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
