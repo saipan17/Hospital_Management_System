@@ -52,5 +52,5 @@ For any Queries Contact me.
 
 ## Demo
 
-Insert gif or link to demo
+Insert git or link to demo
 
