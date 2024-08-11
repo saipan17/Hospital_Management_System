@@ -16,7 +16,7 @@ This project demonstrates proficiency in both frontend and backend technologies,
 
 - IDE: The IDE used is Eclipse. To import the project, follow these steps: File -> Import -> Maven -> Existing Maven Project -> Browse Directory -> Finish.
 
-- Database: The database used is MySQL. First, create all the tables in the hospital_db database.
+- Database: The database used is MySQL. First, create all the tables in the 'hospital_db' database.
 
 - Server: After importing, right-click on the project and select Run on Server. The server used is Tomcat 9.0.
 
