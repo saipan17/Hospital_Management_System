@@ -57,5 +57,7 @@ Insert git or link to demo
 ## SnapShots
 
 ![Screenshot 2024-09-06 160650](https://github.com/user-attachments/assets/98186d3c-75ab-4be9-bd2e-1def004ba4cb)
+![Screenshot 2024-09-06 161014](https://github.com/user-attachments/assets/349ba807-fa05-41f2-9663-d1fc22b370ec)
+
 
 
